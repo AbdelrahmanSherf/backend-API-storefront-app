@@ -30,9 +30,9 @@ const show = async (req: express.Request, res: express.Response) => {
 // order details routes
 const orderDetailsRoute = async (app: express.Application) => {
     // create route - token required
-    app.post('/order-details', create)
+    app.post('/order-details', verifyAuthToken, create)
     // show route - token required
-    app.get('/order-details/:id', show)
+    app.get('/order-details/:id', verifyAuthToken, show)
 }
 
 export default orderDetailsRoute
