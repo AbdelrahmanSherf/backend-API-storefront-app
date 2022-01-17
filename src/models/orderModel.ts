@@ -6,14 +6,7 @@ export type Order = {
     order_status: string;
 }
 
-export type OrderDetails = {
-    id?: number;
-    quantity: number;
-    order_id: number;
-    product_id: number;
-}
-
-export class orderModel {
+export class OrderModel {
     // create - new order with user id and status
     async create(user_id: number, order_status: string): Promise<Order> {
         try {
@@ -27,21 +20,16 @@ export class orderModel {
         }
     }
     // show - fetch orders by user id
-    // refactor refactor refactor  determine the returing type after u test it with postmen
-    // refactor refactor refactor  determine the returing type after u test it with postmen
-    // refactor refactor refactor  determine the returing type after u test it with postmen
-    // refactor refactor refactor  determine the returing type after u test it with postmen
-    // refactor refactor refactor  determine the returing type after u test it with postmen
-    async show(userId: string) {
+    async show(userId: string): Promise<Order[]> {
         try {
             const dbConn = await DBConn.connect()
-            const sqlQuery = 'SELECT quantity, order_id, product_id FROM order_details INNER JOIN orders on order_details.order_id = orders.id WHERE orders.user_id = ($1)'
+            const sqlQuery = 'SELECT orders.id, orders.order_status FROM orders INNER JOIN users on users.id = orders.user_id WHERE users.id = ($1)'
             const result = await dbConn.query(sqlQuery, [userId])
+            console.log(result.rows, 'from model show method')
             dbConn.release()
-            return result.rows[0]
+            return result.rows
         } catch(err) {
-
+            throw new Error('Unable to show order by user id' + err)
         }
     }
-    // create order with detials
 }

@@ -12,12 +12,12 @@ export type User = {
 const paper = process.env.BCRYPT_SECRET
 const salt = Number(process.env.SALT_ROUNDS)
 
-export class userModel {
+export class UserModel {
     // create - create new user
     async create(first_name: string, last_name: string, user_password: string): Promise<User> {
         try {
             const dbConn = await DBConn.connect()
-            const sqlQuery = 'INSERT INTO students (first_name, last_name, user_password) VALUES($1, $2, $3) RETURNING *'
+            const sqlQuery = 'INSERT INTO users (first_name, last_name, user_password) VALUES($1, $2, $3) RETURNING *'
             const hashedPassword = bcrypt.hashSync(user_password + paper, salt)
             const result = await dbConn.query(sqlQuery, [first_name, last_name, hashedPassword])
             dbConn.release()
