@@ -13,7 +13,7 @@ export type Product = {
 // release connection
 // reutrn result whether an arry or not it depends
 
-export class productModel {
+export class ProductModel {
     // index - fetch all products 
     async index(): Promise<Product[]> {
         try {
