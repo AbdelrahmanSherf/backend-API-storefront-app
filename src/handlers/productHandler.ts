@@ -39,7 +39,7 @@ const create = async (req: express.Request, res: express.Response) => {
 // product routes 
 const productRoutes = (app: express.Application) => {
     // create - token required
-    app.post('/product',verifyAuthToken, create)
+    app.post('/product', verifyAuthToken, create)
     // index
     app.get('/product', index)
     // show
