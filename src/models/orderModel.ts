@@ -25,7 +25,7 @@ export class OrderModel {
             const dbConn = await DBConn.connect()
             const sqlQuery = 'SELECT orders.id, orders.order_status FROM orders INNER JOIN users on users.id = orders.user_id WHERE users.id = ($1)'
             const result = await dbConn.query(sqlQuery, [userId])
-            console.log(result.rows, 'from model show method')
+            // console.log(result.rows, 'from model show method') // debugging
             dbConn.release()
             return result.rows
         } catch(err) {
