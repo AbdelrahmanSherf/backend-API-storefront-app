@@ -77,9 +77,11 @@ LICENSE.txt
 REQUIREMENTS.md
 ```
 
-## Initializing The project
+## Initializing The Project
 - Install all Modules with `npm i`
-- Setup a `dev` and `test` databases
+- Connect to the default user on PSQL terminal and: 
+    - setup a `dev` database, run `CREATE DATABASE storefront_db`
+    - setup a `test` database, run `CREATE DATABASE storefront_db_test`
 - Create an environment variables file, the schema for the .env file is: 
     ``` 
         POSTGRES_HOST     =     < db host HERE >
