@@ -17,7 +17,7 @@ const testOrder: Order = {
     order_status: 'Active'
 }
 
-describe('3) <-------------------- Order Model Tests ---------------------->', () => {
+describe('<-------------------- Order Model Tests ---------------------->', () => {
     beforeAll( async () => {
         // create new use to test order model
         try {

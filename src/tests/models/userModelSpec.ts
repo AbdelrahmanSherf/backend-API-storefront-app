@@ -9,7 +9,7 @@ const testUser: User = {
     user_password: 'pass'
 }
 
-describe('2) <-------------------- User Model Tests ----------------------->', () => {
+describe('<-------------------- User Model Tests ----------------------->', () => {
     
     it('Should have create method', async () => {
         expect(users.create).toBeDefined()
@@ -30,7 +30,6 @@ describe('2) <-------------------- User Model Tests ----------------------->', (
     it('Shuld show user by id', async () => {
         const showUser = await users.show(String(testUser.id))
         expect(showUser).toBeTruthy()
-        // refactor this might fail when u make more users // but i guess not becuse i have assigned it to the incoming id so let see
         expect(showUser.id).toEqual(testUser.id) 
         expect(showUser.first_name).toEqual(testUser.first_name)
         expect(showUser.last_name).toEqual(testUser.last_name)

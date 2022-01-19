@@ -1,7 +1,6 @@
 import express from 'express'
 import { OrderDetailsModel } from '../models/orderDetailsModel'
 import verifyAuthToken from '../middleware/verifyAuthToken'
-import app from '../server'
 
 const orderDetails = new OrderDetailsModel()
 

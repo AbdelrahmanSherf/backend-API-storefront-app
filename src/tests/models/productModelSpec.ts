@@ -1,15 +1,6 @@
 import { Product, ProductModel } from '../../models/productModel'
-import { User, UserModel } from '../../models/userModel'
 
 const products = new ProductModel()
-const users = new UserModel()
-
-// new user object 
-// const test----------------------: User = {
-//     first_name: 'Product',
-//     last_name: 'test user',
-//     user_password: 'pass'
-// }
 
 // new product object
 const testProduct: Product = {
@@ -17,18 +8,7 @@ const testProduct: Product = {
     price: 250
 }
 
-
-describe('1) <-------------------- Product Model Tests -------------------->', () => {
-    // refactoreeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-    beforeAll( async () => {
-        // create new user to test with
-        // try {
-        //     const createUser = await users.create(testUser.first_name, testUser.last_name, testUser.user_password)
-        //     console.log('************** Successfully created user for product model spec **')
-        // } catch(err) {
-        //     console.log(err, 'error creating test user for product model spec')
-        // }
-    })
+describe('<-------------------- Product Model Tests -------------------->', () => {
 
     it('Should have create method', async () => {
         expect(products.create).toBeDefined()
