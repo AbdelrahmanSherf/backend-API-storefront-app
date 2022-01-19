@@ -9,8 +9,8 @@ const verifyAuthToken = (req: express.Request, res: express.Response, next: expr
         jwt.verify(token, token_secret)
         next()
     } catch(err) {
-        console.error('Error VerifyAuthToken', err)
-        return res.json(`Invalid authorization user with JWT x401 ${err}`).status(401)
+        // console.error('Error VerifyAuthToken', err)
+        return res.status(401).json(`Invalid authorization user with JWT x401 ${err}`)
     }
 }
 

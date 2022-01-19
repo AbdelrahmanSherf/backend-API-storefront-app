@@ -9,9 +9,9 @@ const create = async (req: express.Request, res: express.Response) => {
     try {
         const { user_id, order_status } = req.body
         const createOrder = await orders.create(user_id, order_status)
-        return res.json(createOrder).status(200)
+        return res.status(200).json(createOrder)
     } catch(err) {
-        return res.json(`could not create order route x500 ${err}`).status(500)
+        return res.status(500).json(`could not create order route x500 ${err}`)
     }
 }
 
@@ -21,10 +21,10 @@ const show = async (req: express.Request, res: express.Response) => {
     try {
         const userId = req.params.id
         const orderById = await orders.show(userId)
-        console.log(orderById)
-        return res.json(orderById).status(200)
+        // console.log(orderById) // debugging
+        return res.status(200).json(orderById)
     } catch (err) {
-        return res.json(`could not show order route x500 ${err}`).status(500)
+        return res.status(500).json(`could not show order route x500 ${err}`)
     }
 }
 

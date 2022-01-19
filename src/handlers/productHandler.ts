@@ -8,9 +8,9 @@ const products = new ProductModel()
 const index = async (_req: express.Request, res: express.Response) => {
     try {
         const indexProducts = await products.index()
-        return res.json(indexProducts).status(200)
+        return res.status(200).json(indexProducts)
     } catch(err) {
-        return res.json(`could not index product route x500 ${err}`).status(500)
+        return res.status(500).json(`could not index product route x500 ${err}`)
     }
 }
 
@@ -19,9 +19,9 @@ const show = async (req: express.Request, res: express.Response ) => {
     try {
         const userId = req.params.id
         const productById = await products.show(userId)
-        return res.json(productById).status(200)
+        return res.status(200).json(productById)
     } catch(err) {
-        return res.json(`could not show product route x500 ${err}`).status(500)
+        return res.status(500).json(`could not show product route x500 ${err}`)
     }
 }
 
@@ -30,9 +30,9 @@ const create = async (req: express.Request, res: express.Response) => {
     try {
         const { product_name, price } = req.body;
         const createNewProduct = await products.create(product_name, price)
-        return res.json(createNewProduct).status(200)
+        return res.status(200).json(createNewProduct)
     } catch(err) {
-        return res.json(`could not create product route x500 ${err}`).status(500)
+        return res.status(500).json(`could not create product route x500 ${err}`)
     }
 }
 
